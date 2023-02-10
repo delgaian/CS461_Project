@@ -342,7 +342,7 @@ async function g_request(callback) {
 
             //relay a message back mentioning that an error has occurred
             if (g_data.cmd == "relay_error") {
-                raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] ERROR`, `An unknown error has occured.\nPlease verify that your e-mail was correctly formated`)
+                raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] ERROR`, `An unknown error has occured.\nPlease verify that your e-mail was correctly formated`)
                 await post_send_msg(g_access.data.access_token, raw)
                 return await callback()
             }
@@ -354,7 +354,7 @@ async function g_request(callback) {
                 var save_filter = filters.save_filter(db, g_data)
                 if(save_filter?.error) {
                     console.log("sending error message:", save_filter.error)
-                   raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] ERROR`, `Error: ${save_filter.error} \n\n(NOTE: please make sure not to add special syntax like bold, italics, underline on your message)`)
+                   raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] ERROR`, `Error: ${save_filter.error} \n\n(NOTE: please make sure not to add special syntax like bold, italics, underline on your message)`)
                    await post_send_msg(g_access.data.access_token, raw)
                    return await callback()
                 }
@@ -406,7 +406,7 @@ async function g_request(callback) {
                         emailBodyMessage = emailBodyMessage.concat(`${replyMessage.grp.member[i]}, `)
                     }
 
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] SAVE GROUP SUCCESS`, `${emailBodyMessage}`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] SAVE GROUP SUCCESS`, `${emailBodyMessage}`)
                     await post_send_msg(g_access.data.access_token, raw)
                 }
                 if (proj) {
@@ -437,7 +437,7 @@ async function g_request(callback) {
                     if (replyMessage.proj.description) {
                         emailBodyMessage = emailBodyMessage.concat(`Description: ${replyMessage.proj.description}`)
                     }
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] SAVE PROJECT SUCCESS`, `${emailBodyMessage}`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] SAVE PROJECT SUCCESS`, `${emailBodyMessage}`)
                     await post_send_msg(g_access.data.access_token, raw)
                 }
                 for (var j = 0; j < g_data.attachments.length; j++) {
@@ -512,7 +512,7 @@ async function g_request(callback) {
                             emailBodyMessage = emailBodyMessage.concat("Description: " + docReplyMessage.description)
                         }
                         //console.log(emailBodyMessage)
-                        raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] SAVE DOCUMENT SUCCESS`, `${emailBodyMessage}`)
+                        raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] SAVE DOCUMENT SUCCESS`, `${emailBodyMessage}`)
                         await post_send_msg(g_access.data.access_token, raw)
                     }
                 }
@@ -525,7 +525,7 @@ async function g_request(callback) {
                 var get_filter = filters.get_filter(db, g_data)
                 if(get_filter?.error) {
                     console.log("sending error message:", get_filter.error)
-                   raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] ERROR`, `Error: ${get_filter.error} \n\n(NOTE: please make sure not to add special syntax like bold, italics, underline on your message)`)
+                   raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] ERROR`, `Error: ${get_filter.error} \n\n(NOTE: please make sure not to add special syntax like bold, italics, underline on your message)`)
                    await post_send_msg(g_access.data.access_token, raw)
                    return await callback()
                 }
@@ -575,7 +575,7 @@ async function g_request(callback) {
                     if (replyMessage.ownerEmail) {
                         emailBodyMessage = emailBodyMessage.concat("\nOwner: " + replyMessage.ownerEmail)
                     }
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] GET GROUP SUCCESS`, `${emailBodyMessage}`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] GET GROUP SUCCESS`, `${emailBodyMessage}`)
                     await post_send_msg(g_access.data.access_token, raw)
                 }
                 if (proj) {
@@ -613,7 +613,7 @@ async function g_request(callback) {
                     }
 
                     //console.log(emailBodyMessage)
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] GET PROJECT SUCCESS`, `${emailBodyMessage}`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] GET PROJECT SUCCESS`, `${emailBodyMessage}`)
                     await post_send_msg(g_access.data.access_token, raw)
 
                 }
@@ -629,7 +629,7 @@ async function g_request(callback) {
                         var docName = db.prepare(`SELECT Name, MIMEType FROM Documents WHERE DocID = ?`).get(docID)
 
                         // if(typeof docName.MIMEType === null) {
-                        //     raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] ERROR`, `Error: one of your files is an invalid. Try testing each individual file. If this issue keeps persisting please contact the adminsistrators of BeavDMS`)
+                        //     raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] ERROR`, `Error: one of your files is an invalid. Try testing each individual file. If this issue keeps persisting please contact the adminsistrators of BeavDMS`)
                         //     await post_send_msg(g_access.data.access_token, raw)
                         //     return await callback()
                         // }
@@ -658,7 +658,7 @@ async function g_request(callback) {
                 var update_filter = filters.update_filter(db, g_data)
                 if(update_filter?.error) {
                     console.log("sending error message:", update_filter.error)
-                   raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] ERROR`, `Error: ${update_filter.error} \n\n(NOTE: please make sure not to add special syntax like bold, italics, underline on your message)`)
+                   raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] ERROR`, `Error: ${update_filter.error} \n\n(NOTE: please make sure not to add special syntax like bold, italics, underline on your message)`)
                    await post_send_msg(g_access.data.access_token, raw)
                    return await callback()
                 }
@@ -699,7 +699,7 @@ async function g_request(callback) {
                     // Construct email
                     var emailBodyMessage = "New Name: " + replyMessage.grp.newName
                     
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] UPDATE GROUP SUCCESS`, `${emailBodyMessage}`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] UPDATE GROUP SUCCESS`, `${emailBodyMessage}`)
                     await post_send_msg(g_access.data.access_token, raw)
                 }
                 if (proj) {
@@ -731,7 +731,7 @@ async function g_request(callback) {
                     var emailBodyMessage = replyMessage.proj.newName
                     
                     //console.log(emailBodyMessage)
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] UPDATE PROJECT SUCCESS`, `New Name # Code: ${emailBodyMessage}`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] UPDATE PROJECT SUCCESS`, `New Name # Code: ${emailBodyMessage}`)
                     await post_send_msg(g_access.data.access_token, raw)
                 }
                 if (doc) {
@@ -804,7 +804,7 @@ async function g_request(callback) {
                         
                     }
                     // Construct email
-                    raw = await helpers.makeBody(`${g_data.sender_email}`, "gobeavdms@gmail.com", `[BOT MESSAGE] UPDATE DOCUMENT SUCCESS`, `Documents Successfully Updated`)
+                    raw = await helpers.makeBody(`${g_data.sender_email}`, "beavdms4@gmail.com", `[BOT MESSAGE] UPDATE DOCUMENT SUCCESS`, `Documents Successfully Updated`)
                     await post_send_msg(g_access.data.access_token, raw)
                 }
             }
