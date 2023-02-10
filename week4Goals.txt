@@ -1,6 +1,0 @@
-Goals - 
-
-Create an instance on aws to get application hosted ubuntu server
-t2micro
-
-once instance is created, log into instance through ssh or through GUI
